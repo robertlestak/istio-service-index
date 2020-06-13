@@ -1,0 +1,30 @@
+html {
+  width: 100%;
+  padding: 20px;
+}
+
+.service-box {
+  cursor: pointer;
+}
+
+.category-name {
+  margin: 20px;
+}
+
+.header {
+  margin-top: 20px;
+}
+
+.categories {
+  margin-top: 40px;
+}
+
+
+.loading {
+  border: 0;
+  display: block;
+  padding-top: 200px;
+  width: 50px;
+  font-size: 3rem;
+  margin: 0 auto;
+}

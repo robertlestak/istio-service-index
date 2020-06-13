@@ -1,0 +1,28 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: service-index
+  namespace: tools
+  annotations:
+    istio-service-index.v1.lestak.sh/description: "Index of all services"
+    istio-service-index.v1.lestak.sh/category: "tools"
+spec:
+  hosts:
+  - "i.int"
+  gateways:
+  - istio-system/ingressgateway
+  http:
+  - match:
+    - uri:
+        prefix: "/"
+    route:
+    - destination:
+        host: service-index
+    corsPolicy:
+      allowOrigin:
+      - '*'
+      allowMethods:
+      - POST
+      - GET
+      allowCredentials: false

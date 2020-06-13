@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-index
+  namespace: tools
+  labels:
+    app: service-index
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-index
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service-index
+        version: v1
+    spec:
+      serviceAccountName: service-index
+      containers:
+        - image: registry.int/service-index:3
+          name: service-index
+          ports:
+            - containerPort: 80
+          env:
+            - name: PORT
+              value: "80"
